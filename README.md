@@ -1,2 +1,1 @@
-# first-django-app
-First django app
+Simple django app
