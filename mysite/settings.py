@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-o^64gt40w1ws&l2oxi6#ogmasq=^tu!oce3o1*dm8^x3(u%4k$
 DEBUG = True
 
 # vercel_app/settings.py
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
+ALLOWED_HOSTS = ['localhost', '.vercel.app']
 
 # Application definition
 
@@ -70,9 +70,9 @@ TEMPLATES = [
 ]
 
 
-# WSGI_APPLICATION = 'mysite.wsgi.application'
+WSGI_APPLICATION = 'mysite.wsgi.application'
 # vercel_app/settings.py
-WSGI_APPLICATION = 'vercel_app.wsgi.app'
+# WSGI_APPLICATION = 'vercel_app.wsgi.app'
 
 
 # Database
