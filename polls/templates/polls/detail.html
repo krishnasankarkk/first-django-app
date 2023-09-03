@@ -4,19 +4,23 @@
     <meta charset="UTF-8">
     <title>Details</title>
 </head>
-<body bgcolor="#ddf7fb">
-    <a href="{% url 'polls:index' %}">Home</a>
-    <form action="{% url 'polls:vote' question.id %}" method="post">
+{% load static %}
+<link rel="stylesheet" href="{% static 'polls/style.css' %}">
+<body>
+    <button>
+        <a href="{% url 'polls:index' %}">Home</a>
+    </button>
+    <form class="area" action="{% url 'polls:vote' question.id %}" method="post">
         {% csrf_token %}
-        <fieldset>
-            <legend><h1>{{ question.question }}</h1></legend>
+        <div>
+            <h1>{{ question.question }}</h1>
             {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
             {% for choice in question.choice_set.all %}
                 <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
                 <label for="choice{{ forloop.counter }}">{{ choice.choice }}</label><br>
             {% endfor %}
-        </fieldset>
-        <input type="submit" value="Vote">
+        </div>
+        <button type="submit">Vote</button>
     </form>
 </body>
 </html>

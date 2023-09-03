@@ -4,16 +4,20 @@
     <meta charset="UTF-8">
     <title>Poll Results</title>
 </head>
-<body bgcolor="#ddf7fb">
-    <a href="{% url 'polls:index' %}">Home</a>
-    <fieldset>
-        <legend><h1>{{ question.question }}</h1></legend>
+{% load static %}
+<link rel="stylesheet" href="{% static 'polls/style.css' %}">
+<body>
+    <button>
+        <a href="{% url 'polls:index' %}">Home</a>
+    </button>
+    <div class="area">
+        <h1>{{ question.question }}</h1>
         <ul>
             {% for choice in question.choice_set.all %}
             <li>{{ choice.choice }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
             {% endfor %}
         </ul>
-    </fieldset>
-    <a href="{% url 'polls:detail' question.id %}">Vote again</a>
+    </div>
+    <button><a href="{% url 'polls:detail' question.id %}">Vote again</a></button>
 </body>
 </html>

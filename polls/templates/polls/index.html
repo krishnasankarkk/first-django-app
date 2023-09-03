@@ -7,18 +7,26 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My Poll App</title>
 </head>
-<body bgcolor="#ddf7fb">
-    <fieldset>
-        <legend><h1>Questions</h1></legend>
-        {% if latest_question_list %}
-            <ul>
-            {% for question in latest_question_list %}
-                <li><a href="{% url 'polls:detail' question.id %}">{{ question.question }}</a></li>
-            {% endfor %}
-            </ul>
-        {% else %}
-            <p>No polls are available.</p>
-        {% endif %}
-    </fieldset>
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'polls/style.css' %}">
+<body>
+    <button>
+        <a href="{% url 'polls:index' %}">Home</a>
+    </button>
+    <div class="area">
+        <div>
+            <h1>Questions</h1>
+            {% if latest_question_list %}
+                <ul>
+                {% for question in latest_question_list %}
+                    <li><a href="{% url 'polls:detail' question.id %}">{{ question.question }}</a></li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <p>No polls are available.</p>
+            {% endif %}
+        </div>
+    </div> 
 </body>
 </html>
