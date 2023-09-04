@@ -1,3 +1,4 @@
 utils.py
 db.sqlite3
 __pycache__
+vercel.json
